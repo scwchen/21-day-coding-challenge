@@ -35,7 +35,6 @@ const parseMessage = (origin, message) => {
 const generateAstronautTag = (astronaut) => {
     const { firstName, lastName, nickname, prefix } = astronaut;
     const greeting = `${prefix}: ${firstName} "${nickname}" ${lastName}`;
-
     return greeting;
 }
 
@@ -57,12 +56,7 @@ const generateAstronautTag = (astronaut) => {
 
 const checkGaugeStatus = (gauge) => {
     const { current, min, max } = gauge;
-
-    if (current > min && current < max) {
-        return true;
-    } else {
-        return false;
-    }
+    return (current > min && current < max)
 }
 
 // ===========================================
