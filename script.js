@@ -458,3 +458,36 @@ const timeRemaining = (launchDate, missionName, fakeToday) => {
     const daysRemaining = Math.round((Date.parse(launchDate) - Date.parse(today)) / 86400000);
     return { missionName: missionName, daysRemaining: daysRemaining }
 }
+
+// ===========================================
+// Challenge #16 - 21 Questions
+// ===========================================
+
+// Instructions
+
+// Your task is to write a function that will take in two position objects.Calculate the average speed from the two positions and return the average speed rounded to the first decimal point.
+
+// Each object contains the altitude in meters, and a time stamp in seconds.
+
+//     Examples
+// Input:
+
+// const firstPosition = {
+//     time: 1637074462,
+//     altitude: 1100
+// }
+// const secondPosition = {
+//     time: 1637074558,
+//     altitude: 2200
+// }
+
+// Output:
+
+// 11.5
+
+const getAverageSpeed = (firstPosition, secondPosition) => {
+    const time = secondPosition.time - firstPosition.time;
+    const distance = Math.abs(secondPosition.altitude - firstPosition.altitude);
+    return Math.round((distance / time) * 10) / 10;
+    // Could also use toFixed but it gets a little messy because it returns a string instead of a number
+}
