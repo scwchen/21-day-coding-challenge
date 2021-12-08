@@ -491,3 +491,47 @@ const getAverageSpeed = (firstPosition, secondPosition) => {
     return Math.round((distance / time) * 10) / 10;
     // Could also use toFixed but it gets a little messy because it returns a string instead of a number
 }
+
+// ===========================================
+// Challenge #17 - The moment you’ve all been waiting for...
+// ===========================================
+
+// Instructions
+
+// Your task is to write a function that will take in an array of toggle objects and a specific toggle name.The goal is to switch only the specific toggle, without affecting the other toggles and then return the updated array.
+
+//     Don't forget that you can use your previous function from the fourth challenge to help you complete it faster!
+
+// Examples
+// Input:
+
+// const toggleList = [
+//     {
+//         name: "toggleA",
+//         isOn: false
+//     },
+//     {
+//         name: "toggleB",
+//         isOn: true
+//     }
+// ]
+// const specificToggle = "toggleA"
+
+// Output:
+
+// [
+//     {
+//         name: "toggleA",
+//         isOn: true
+//     },
+//     {
+//         name: "toggleB",
+//         isOn: true
+//     }
+// ]
+
+// I could have made this just an extension of #14 but wanted to see if I could get most of the logic on one line.
+const switchSpecificToggle = (toggleList, specificToggle) => {
+    toggleList.find(toggle => toggle.name === specificToggle).isOn = !toggleList.find(toggle => toggle.name === specificToggle).isOn;
+    return toggleList;
+}
