@@ -535,3 +535,40 @@ const switchSpecificToggle = (toggleList, specificToggle) => {
     toggleList.find(toggle => toggle.name === specificToggle).isOn = !toggleList.find(toggle => toggle.name === specificToggle).isOn;
     return toggleList;
 }
+
+
+// ===========================================
+// Challenge #18 - Bon Appetit
+// ===========================================
+
+// Instructions
+
+
+// Your task is to write a function that will take in an array of lunch choices(strings) and return the choice as a string with the most votes.
+
+// There is always two lunch choices, and always an odd number of astronauts!
+
+// Examples
+// Input:
+
+// const listOfChoices = [
+//     "Chicken Dinner",
+//     "Chicken Dinner",
+//     "Chicken Dinner",
+//     "Ice Cream Sandwich",
+//     "Ice Cream Sandwich"
+// ]
+// Output:
+
+//     Chicken Dinner
+
+// Surely there's a simpler way but just wanting to make sure it can expand to when there are more than two choices.
+
+
+const chooseLunchWinner = (listOfChoices) => {
+    const choiceFrequency = listOfChoices.reduce((choices, choice) => {
+        choices[choice] = choices[choice] + 1 || 1;
+        return choices
+    }, {});
+    return Object.keys(choiceFrequency).reduce((a, b) => choiceFrequency[a] > choiceFrequency[b] ? a : b);
+}
